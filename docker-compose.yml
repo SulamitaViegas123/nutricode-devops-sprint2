@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  nutricode-app:
+    build: .
+    container_name: nutricode_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - nutricode_data:/usr/src/app/data.json
+    environment:
+      - NODE_ENV=production
+
+volumes:
+  nutricode_data:
+    driver: local
